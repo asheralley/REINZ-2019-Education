@@ -1,0 +1,7 @@
+REINZ Education 2019 Topics
+
+Short Answer questions:
+Textbox - White text in transparent box in keeping with current design
+Submit button with confirm popup? Or submit on next slide button with confirm assurance?
+
+
