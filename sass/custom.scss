@@ -1,0 +1,813 @@
+// Imports to reduce get requests
+@import 'bootstrap-3.3.6.scss';
+@import 'fonts.scss';
+@import 'reveal.scss';
+@import 'simple.scss';
+@import 'quiz-styles.scss';
+
+// All Custom css via custom.scss
+
+/*Variables*/
+$blue: #22d3c5;
+$blue-a: #297a78;
+$blue-b: #22d3c5;
+$green: #558930;
+$green-b: #77bc1f;
+$yellow: #cede00;
+$grey: #9fa1a1;
+$bg: #345973; // Asher CSS
+$btnBg: #7BADBF; // Asher CSS
+
+// Gradient div on the top of each page for gradient overlay effect
+.gradient-overlay {
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+* {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.reveal .slides {
+  height: 100%;
+  top: 0;
+  margin-top: 0;
+  text-align: left;
+}
+
+.reveal .slides>section {
+  min-height: 90%;
+  top: 0px !important;
+}
+
+.reveal .slides>section>section {
+  min-height: 100%;
+}
+
+// Link Outline Reset
+a,
+a:hover,
+a:active,
+a:focus {
+  outline: none !important;
+}
+
+/*Typography*/
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
+  word-wrap: break-word; }
+
+.reveal h1 {
+  font-size: 1.2em; 
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.reveal h2 {
+  font-size: 1.6em; 
+  color: #fff;
+  font-weight: 300;
+}
+
+.reveal h3 {
+  font-size: 1em; 
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 800;
+}
+
+.reveal h4 {
+  font-size: 0.5em; 
+  color: #fff;
+}
+
+.reveal h4 b {
+  font-size: 1.05em; 
+}
+
+.reveal h4 i{
+  font-weight: bold; 
+}
+
+.reveal h5 {
+  font-size: 0.5em; 
+  color: #fff;
+  font-weight: 800;
+}
+
+.reveal h1 {
+  text-shadow: none; }
+
+#firstTitle h4 {
+  font-size: 0.85em;
+}
+
+/*Custom Css*/
+
+/*Slides*/
+
+.logo {
+
+	img{
+		float: right;
+		width: 38%;
+		margin-right: 3%;
+	}
+
+}
+
+.spot-logo {
+  width: 180px;
+  position: absolute;
+  top: 58px;
+  right: -2%;
+  z-index: 1000;
+  opacity: 0.9;
+}
+
+.slide {
+
+	.reveal h1 {
+	  font-size: 2.1em; 
+	  color: #005458;
+	  text-transform: uppercase;
+	  font-weight: 700;
+	  margin-bottom: 5%;
+	}
+
+	.title {
+		float: left;
+		text-align: left;
+    width: 100%;
+	}
+
+  .main-logo {
+    width: 70%;
+    padding-bottom: 0.8em;  
+  }
+
+
+	.logo {
+
+		img {
+				width: 38%;
+			}
+
+	}
+
+ 	p {
+ 		color: #fff;
+ 		font-size: 0.5em;
+ 	}
+
+} //Slide ends
+
+// First Slide Logo
+.title-contain {
+  position: relative;
+}
+
+.slide-a.present .title div img.slide-icon {
+  position: absolute;
+  width: 1em;
+  top: -0.38em;
+}
+
+.slide-a.present .title div h3:first-of-type {
+  display: inline;
+  padding-bottom: 0.5em;
+  margin-bottom: 3em;
+}
+
+.slide.slide-a .title div.title-contain h4:nth-of-type(1) {
+  margin-top: 0.9em;
+  margin-left: 1.55em;
+  margin-bottom: 0.6em;
+}
+
+.slide.slide-a .title div.title-contain h4:nth-of-type(2) {
+  margin-left: 2.25em;
+  margin-bottom: 0.2em;
+  font-size: 0.7em;
+}
+
+.spacer {
+  display: inline-block;
+  min-width: 1.4em;
+}
+
+.slides section div.title h3.conclude {
+  margin-top: 0.25em;
+  margin-bottom: 0.9em;
+}
+
+// Images
+.reveal section img {
+  background: none;
+  box-shadow: none; 
+  border: none;
+}
+
+
+// Questions CSS Quiz Section
+.optionOutCss p, .optionOverCss p {
+
+  line-height: 2em;
+  
+}
+
+// Asher CSS 
+.reveal .quizBody{
+  padding: 0 1em;
+  // background-color: $bg;
+}
+
+#question p{
+  font-size: 0.44em;
+}
+
+.fa-graduation-cap {
+  font-size: 0.7em;
+}
+
+.reveal .answerText {
+  text-align: center;
+  text-transform: uppercase;
+  margin: -0.46em -0.46em;
+  font-size: .39em;
+  font-weight: bold;
+  color: inherit;
+}
+
+.reveal .controlBox{
+  margin-top: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+// Asher - Trying to use the default classes
+.reveal .optionBox {
+  border: 4px solid white;
+  width: 33%;
+  margin: 0 auto;
+  padding: 0.39em;
+  height: 45px;
+}
+
+.reveal .optionBox p{
+  margin: -0.46em -0.46em;
+}
+
+// Mouse over css & select css, may need to have seperate css for the two events?
+.reveal .optionOverCss{
+  border: 4px solid white;
+  background-color: #fff;
+  color: $bg;
+  width: 33%;
+  margin: 0 auto;
+  padding: 0.25em;
+  height: 45px;
+}
+
+// Mouse out css
+.reveal .optionOutCss{
+  border: 4px solid white;
+  width: 33%;
+  margin: 0 auto;
+  padding: 0.25em;
+  height: 45px;
+}
+
+
+.reveal .optionOverCss p{
+  margin: -0.46em -0.46em;
+}
+
+// These are for the reset and confirm buttons
+.reveal .btnOverCss input{
+  border: 2px solid white;
+  background-color: $btnBg;
+}
+
+.reveal .btnOutCss input{
+  border: 2px solid white;
+  background-color: $btnBg;
+}
+
+#controlDiv{
+  display: flex;
+  justify-content: space-between;
+}
+
+.reveal .buttonBoxLeft{
+  width: 33.33%
+}
+
+.reveal .buttonBoxMid{
+  width: 330px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reveal .buttonBoxRight{
+  width: 33.33%;
+  font-size: 1em;
+  margin-top: 0.09em;
+  padding: 0 1em;
+}
+
+#nextQBtn{
+  display: flex;
+}
+
+.reveal .chevron{
+  margin-top: 0.08em;
+  margin-left: 0.5em;
+}
+
+.reveal .fa-angle-double-right{
+  font-size: 1.5em;
+  display: inline;
+}
+
+// Footer Black Bar
+
+.reveal .blackBar{
+  height: 80px;
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+}
+
+// Navigation Panel
+.navigate-right, .navi-right {
+  right: 5%;
+  position: absolute;
+  top: 88%;
+  z-index: 2500;
+  left: 91%;
+  outline: none;
+}
+
+.navigate-left, .navi-left {
+  position: absolute;
+  top: 88%;
+  z-index: 2500;
+  outline: none; 
+  left: 5%; 
+}
+
+ // i.fa.fa-caret-left,  i.fa.fa-caret-right {
+ //  font-size: 1.2em;
+ //  color: #fff;
+ // }
+
+i.fa.fa-arrow-circle-left,  i.fa.fa-arrow-circle-right {
+  font-size: 1.2em;
+  color: #fff;
+} 
+
+// Progress Bar is
+.reveal .progress {
+    height: 8px;
+    color: #fff;
+}
+
+.reveal .progress span {
+    background: #fff none repeat scroll 0 0; 
+    opacity: 0.9;
+}
+
+// Score Panel
+#quizscoreContainer.scoreContainer {
+  margin-top: 10%; 
+}
+
+// Video Css
+.vjs-big-play-button {
+  font-size: 2.2em !important;
+}
+
+/*override existing css*/
+.fa-angle-left, .fa-angle-right {
+  color: #fff;
+  font-size: 1.2em;
+}
+
+// Open Question Slides
+
+.slide-icon {
+  height: 55px;
+}
+
+.btn-complete {
+  color: #fff;
+  border-radius: 0;
+  border: 3px solid white;
+  background-color: rgba(53, 90, 115, 0.2);
+  text-transform: uppercase;
+  margin-top: 4em;
+}
+
+.btn-complete:hover {
+  background-color: rgba(53, 90, 115, 1);
+  color: #fff;
+  border: 3px solid white;
+}
+
+.answer-box {
+  // background-color: rgba( 0, 0, 0, 0.7 );
+  overflow: auto;
+  max-height: 55vh;
+  width: 100%;
+}
+
+.answer-box p {
+  padding: 0 15px 15px 15px;
+  font-size: 0.5em;
+  padding-bottom: 2em;
+  margin-top: 0px;
+}
+
+.answer-box p i{
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+// Quiz Icon
+#quizoptionContainer div#question img.slide-icon {
+  width: 1.25em;
+}
+
+// Open Questions Icon
+.title h3 img.slide-icon {
+  width: 1.25em;
+}
+
+/*Footer*/
+.slide-footer {
+  background-color:#000; 
+  position: fixed;
+  bottom: 0px; 
+  height: 6%; 
+  width: 100%;
+  z-index:100;
+}
+
+.reveal section img {
+  margin: 0 10px;
+}
+
+
+
+.slide-a.present .title div img.slide-icon {
+    top: 0;
+}
+
+/* NEW CSS ************/
+
+.reveal hr {
+  margin-top: 35px;
+  margin-bottom: 30px;
+  width: 90%;
+  margin-left: 1em;
+}
+
+
+.reveal section img {
+  display: inline;
+  vertical-align: bottom;
+  margin-right: 15px;
+}
+
+.extra-margin {
+  margin-left: 74px !important;
+  margin-top: 1em !important; 
+  padding: 1em 1em 1em 0.5em !important;
+  background-color: rgba( 0, 0, 0, 0.7 );
+}
+
+.instructions {
+  padding:0.4em !important;
+  background-color: rgba( 0, 0, 0, 0.65 );
+}
+
+.slide .title {
+  margin-top: 30px;
+}
+
+.slide-a.present .title div img.slide-icon {
+    position: inherit;
+    margin-left: -2.5em;
+}
+
+.slide-a.present .title div h3:first-of-type {
+    display: inline;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-left: 1em;
+}
+
+.reveal iframe, .reveal img, .reveal video {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+// Made the play button smaller
+.video-js .vjs-big-play-button{
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  border: none;
+  border-radius: 50%;
+}
+
+// Made the control bar text slightly bigger
+.video-js .vjs-control-bar{
+  font-size: 11px;
+}
+
+.video-js .vjs-load-progress{
+  height: 0.3em;
+}
+
+.video-js .vjs-dock-title{
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: white;
+  padding-top: 0;
+}
+
+.video-js .vjs-dock-text {
+  background: linear-gradient(to bottom, rgba(20,20,20,0.9) 0%, rgba(0,0,0,0.0) 100%);
+  opacity: .8;
+}
+
+.conclusion {
+  padding: 1em 1em 1em 0.5em !important;
+  background-color: rgba( 0, 0, 0, 0.7 );
+}
+
+
+
+
+/*// ***Media Queries*/
+  /* Large Devices, Wide Screens */
+      @media only screen and (max-width : 1200px) {
+
+        .reveal .answer-box{
+        overflow: auto;
+        max-height: 55vh;
+      }
+
+      #question p{
+        max-height: 24vh;
+        overflow: auto;
+      }
+
+    }
+
+  /*// This is specifically for ipads in landscape*/
+
+      @media only screen and (max-width : 1024px) {
+        
+        #question{
+          margin-bottom: 121px !important; /*//This makes every other question a bit ugly but dam I had to fix topic 5a question 16*/
+        }
+
+      }
+
+      /* Medium Devices, Desktops */
+      @media only screen and (max-width : 992px) {
+        h3 {
+        font-size: 0.9em !important;
+        display: flex !important;
+        margin-left: 1.7em !important;
+      }
+
+      h4 {
+        font-size: 0.8em !important;
+        margin-left: 1.6em !important;
+      }
+
+      .slide-a h4 {
+        margin-left: 1em !important;
+      }
+    
+
+
+      .reveal hr {
+          margin-bottom: 30px;
+          margin-top: 5px;
+          width: inherit;
+          margin-left: auto;
+      }
+
+      p {
+        font-size: 0.4em;
+      }
+
+      .reveal .answer-box{
+        overflow: auto;
+        max-height: 55vh;
+      }
+
+      #question p{
+        max-height: 24vh;
+        overflow: auto;
+      }
+
+      /*// Updated below 21/2/17 - Asher*/
+
+      #question{
+          margin-bottom: 121px !important; /*// This makes every other question a bit ugly but dam I had to fix topic 5a question 16*/
+        }
+
+      .reveal .optionBox{
+        width: 50%;
+        margin-bottom: 25px !important;
+      }
+
+      .reveal .optionOverCss{
+        width: 50%;
+        margin-bottom: 25px !important;
+      }
+
+      .reveal .optionOutCss{
+        width: 50%;
+        margin-bottom: 25px !important;
+      }
+
+      .reveal .buttonBoxLeft{
+        width: 25%;
+      }
+
+      .reveal .buttonBoxMid{
+        width: 50%;
+      }
+
+      .reveal .buttonBoxRight{
+        width: 25%;
+      }
+      /*// end of new css 21/2/17*/
+
+    }
+
+      /* Small Devices, Tablets */
+      @media only screen and (max-width : 768px) {
+
+      h3 {
+        font-size: 0.8em !important;
+      }
+
+      h4 {
+        font-size: 0.6em !important;
+      }
+
+      .navi-left, .navi-right {
+        padding: 0 70px;
+      }
+
+      .slide-a.present .title div img.slide-icon {
+          position: inherit;
+          margin-left: -1.5em;
+      }
+
+      p {
+        font-size: 0.3em;
+      }
+
+      .reveal .answer-box{
+        overflow: auto;
+        max-height: 60vh;
+      }
+
+      #question p{
+        max-height: 27vh;
+        overflow: auto;
+      }
+
+
+
+      #question{
+          margin-bottom: 153px !important; /*// This makes every other question a bit ugly but dam I had to fix topic 5a question 16*/
+        }
+
+      .reveal .optionBox{
+        width: 50%;
+        margin-bottom: 25px !important;
+      }
+
+      .reveal .optionOverCss{
+        width: 50%;
+        margin-bottom: 25px !important;
+      }
+
+      .reveal .optionOutCss{
+        width: 50%;
+        margin-bottom: 25px !important;
+      }
+
+      .reveal .buttonBoxLeft{
+        width: 25%;
+      }
+
+      .reveal .buttonBoxMid{
+        width: 50%;
+      }
+
+      .reveal .buttonBoxRight{
+        width: 25%;
+      }
+
+      #nextQBtn{
+        flex-direction: column-reverse;
+      }
+
+      .reveal .tryMore{
+        width: 103px;
+      }
+
+    }
+
+
+// First Slide Arrow Navigation Effect
+@keyframes pulse_animation {
+  0% { transform: scale(1); }
+  30% { transform: scale(1); }
+  40% { transform: scale(1.5); }
+  50% { transform: scale(1); }
+  60% { transform: scale(1); }
+  70% { transform: scale(1.5); }
+  80% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+  animation-delay: 2s;
+  animation-name: pulse_animation;
+  animation-duration: 8000ms;
+  transform-origin:70% 70%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+// Video Behaviour in Full Screen
+// ***** 
+.video-js{
+  height: 70% !important;
+  width: 85% !important;
+  top: 2.5em !important;
+}
+
+video {
+  top: 0.8em !important;
+}
+
+.video-js:-moz-full-screen {
+  top: 0em !important;
+}
+
+.video-js:-webkit-full-screen {
+  top: 0em !important;
+}
+
+.video-js:fullscreen {
+  top: 0em !important;
+}
+
+// Ashers 2018 updates:
+#quizfeedbackContainer{
+    text-align: center;
+}
+
+.reveal .buttonBoxMid{
+  width: 33.33%;
+}

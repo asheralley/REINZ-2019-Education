@@ -1,0 +1,4 @@
+bower_components/
+node_modules/
+asher-notes.txt
+package-lock.json

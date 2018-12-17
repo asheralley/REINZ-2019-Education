@@ -1,0 +1,17 @@
+{
+  "name": "IRNZ Presentation",
+  "description": "Impact Pres",
+  "dependencies": {
+    "animsition": "^4.0.2",
+    "impress-js": "impress.js#^0.6.0"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
+}

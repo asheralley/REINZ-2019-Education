@@ -1,0 +1,149 @@
+@charset "utf-8";
+
+/*Old Quiz Responsive.css*/
+@charset "utf-8";
+html{height:100%;background:#eee;}
+.timeoutContainer{text-align: center;}
+.scoreContainer{text-align: center;} 
+
+/* timer */
+.timer{margin-top:70px;zoom:0.6;-moz-transform: scale(0.6);-moz-transform-origin: top center; background:transparent none no-repeat 0px 0px;display:none;opacity:0.5;filter:alpha(opacity=50);filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50) ;-moz-opacity:0.5;position:relative !important;}
+
+.btnOutCss input{background:#4b4b40;color:#fff;border:1px solid #4b4b40;
+-webkit-transition: background-color 500ms linear;
+    -moz-transition: background-color 500ms linear;
+    -o-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;}
+
+
+/*All Of Styles CSS*/
+
+*{margin:0;padding:0;}
+
+body{
+-webkit-animation-delay: 0.1s;
+-webkit-animation-name: fontfix;
+-webkit-animation-duration: 0.1s;
+-webkit-animation-iteration-count: 1;
+-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes fontfix {
+    from { opacity: 1; }
+    to   { opacity: 1; }
+}
+
+div, p, a, li, td { -webkit-text-size-adjust:none; }
+p{font-size:14px;line-height:21px;margin-bottom:12px;color:#4b4b40;}
+p:last-child{margin-bottom:0px;}
+input{background:#4b4b40;font-size:14px;font-weight:bold;color:#fff;padding:6px 10px 6px 10px;border:none;-webkit-appearance:none;border-radius:0px; -moz-border-radius:0px;font-family: 'Roboto Condensed', sans-serif;}
+img{display:block;} /* remove bottom padding */ 
+
+
+.orangebg{}
+.border{border:2px solid #fff;}
+.lightBox{background:rgba(255,255,255,0.9);padding:20px;border-radius:0px; -moz-border-radius:0px;border:1px solid #ddd;}
+
+.timeoutContainer{height:100%;} /* allows for vertical alignment */
+.scoreContainer{height:100%;} /* allows for vertical alignment */
+.glow{text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);}
+.white{color:#fff;}
+.black{color:#111;}
+.grey{color:#666;}
+.orange{color:#f7c160;}
+.cent{text-align:center;}
+
+.p_16{font-size:16px;line-height:21px;}
+.p_24{font-size:24px;line-height:30px;}
+.p_30{font-size:30px;line-height:35px;}
+.p_32{font-size:32px;line-height:40px;}
+.p_42{font-size:42px;line-height:40px;}
+
+
+/*Asher- I got rid of these styles and changed them to custom styles in custom.scss thought it would be tidier to keep
+everything in one place*/
+.mcqRadioBtn{width:12px;height:12px;background:#fff;border:1px solid #999;border-radius:10px; -moz-border-radius:10px;}
+/*.optionBox{background:#4b4b40;padding:8px;border:none;border-radius:0px; -moz-border-radius:0px;overflow:hidden !important;}*/
+/*.optionOverCss{background:#7a7a7a; border:2px solid #333; padding:8px;border-radius:0px; -moz-border-radius:0px; max-height: 80px;}*/
+/*.optionOverCss p {color:#333;}*/
+/*.optionOutCss{background:#4b4b40; max-height: 80px;color:#fff; padding:8px;border:none;border-radius:0px; -moz-border-radius:0px;}*/
+
+/*.btnOverCss input{background:#fff;color:#4b4b40;}*/
+/*.btnOutCss input{background:#4b4b40;color:#fff;}*/
+
+.vertical-align {
+  position: relative !important;
+  top: 50% !important;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* timer */
+.timerContainer{text-align: center;}
+.timer{margin-top:150px;background:transparent none no-repeat 0px 0px;display:none;opacity:0.5;filter:alpha(opacity=50);filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50) ;-moz-opacity:0.5;position:relative !important;}
+
+@media (max-width: 992px) {
+  #col1{margin-top:110px;} /* pushes the question down allowing space for the timer */
+  .timerRow{width:100%;}
+  .timerContainer{text-align: center;width:100%;}
+  .timer {margin-top:50px;zoom:0.35;-moz-transform: scale(0.35);-moz-transform-origin: top center;}
+}
+
+.imgOverCss img{
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -moz-transition: -moz-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  transform: scale(1.25);
+  -moz-box-shadow: 0px 0px 10px #666;-webkit-box-shadow:0px 0px 10px #666;box-shadow:0px 0px 10px #666;
+}
+
+.imgOutCss img{
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -moz-transition: -moz-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -moz-box-shadow: 0px 0px 0px #666;-webkit-box-shadow:0px 0px 0px #666;box-shadow:0px 0px 0px #666;
+}
+
+
+/* nav */
+#nav{position:absolute;z-index:99;}
+
+/* preloader */
+.preloader{
+    width:34px;
+    height:34px;
+    display:inline-block;
+    padding:0px;
+    
+    border-radius:100%;
+    border:2px solid;
+    border-top-color:rgba(0,0,0, 0.8);
+    border-bottom-color:rgba(0,0,0, 0.2);
+    border-left-color:rgba(0,0,0, 0.8);
+    border-right-color:rgba(0,0,0, 0.2);
+    outline: 1px solid transparent;
+
+    -webkit-animation: preloader 1s linear infinite;
+    animation: preloader 1s linear infinite;
+}
+@keyframes preloader{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+@-webkit-keyframes preloader{
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+.scoreContainer {
+  margin-top: 10%;
+}

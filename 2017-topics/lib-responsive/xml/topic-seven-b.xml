@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+    <events>
+		<event id="btnover">
+			<rollover>
+				<css name="btnOverCss">this</css>
+			</rollover>
+			
+			<rollout>
+				<css name="btnOutCss">this</css>
+			</rollout>
+		</event>
+
+		<event id="optionover">
+			<rollover>
+				<css name="optionOverCss">this</css>
+			</rollover>
+			
+			<rollout>
+				<css name="optionOutCss">this</css>
+			</rollout>
+		</event>
+		
+		<event id="selectandsubmit">
+			<click>
+				<css name="optionOverCss">this</css>
+				<function name="select">this</function>
+				<function name="submit">this</function>
+			</click>
+		</event>
+
+		<event id="select">
+			<click>
+				<css name="optionOverCss">this</css>
+				<function name="select">this</function>
+			</click>
+		</event>
+
+		<event id="submit">
+			<click>
+				<function name="submit">this</function>
+			</click>
+		</event>
+
+		<event id="reset">
+			<click>
+				<function name="reset">this</function>
+			</click>
+		</event>
+		
+        <event id="begin">
+            <click>
+                <anim type="remove" animtime="0" oncomplete="0">openingText</anim>
+                <function name="begin">this</function>
+            </click>
+        </event>
+
+        <event id="loadNextQuestion">
+            <click>
+                <function name="loadNextQuestion">this</function>
+            </click>
+        </event>
+		
+		<event id="restart">
+            <click>
+                <function name="restart">this</function>
+            </click>
+        </event>
+
+        <event id="showq1bg">
+            <click>
+                <anim type="show" animtime="2" oncomplete="0">q1bg</anim>
+            </click>
+        </event>
+
+         <event id="hidepassbg">
+            <click>
+            	<anim type="hide" animtime="2" oncomplete="0">passbg</anim>
+            </click>
+        </event>
+
+        <event id="showpassbg">
+            <click>
+                <anim type="show" animtime="5" oncomplete="0">passbg</anim>
+            </click>
+        </event>
+
+        <event id="hidefailbg">
+            <click>
+            	<anim type="hide" animtime="2" oncomplete="0">failbg</anim>
+            </click>
+        </event>
+
+        <event id="showfailbg">
+            <click>
+                <anim type="show" animtime="2" oncomplete="0">failbg</anim>
+            </click>
+        </event>
+    </events>    
+
+    <!--responsive timer-->
+    <!--1 column layout, moves to top center on phones-->
+    <box id="timerContainer" position="absolute" x="0" y="0" height="20" anim="none" animtime="0.5" animdelay="1" class="col-md-8 col-md-offset-2 timerContainer" z-index="2">
+
+    </box>
+
+    <!--opening text-->
+    <box id="openingText" position="relative" margin-top="30" anim="top" animtime="1" ease="Bounce.easeOut" class="col-md-12" z-index="1">
+
+    	<text id="title" position="relative" anim="none"><![CDATA[<h1>Questions</h1><h4>Answer the following questions by selecting true or false.</h4><p class="black">You may need to refer back to the information presented in this topic to help you with your answers. ///</p>
+    	]]></text>
+
+    	<button id="goBtn" position="relative" height="40" margin="0 auto" margin-top="20" display="block" width="100" anim="none" event="btnover,begin" target="title" class="center-block"><![CDATA[START]]></button>
+    </box>
+
+    <!--timed quiz-->
+    <custom type="quiz" id="quiz" position="relative" x="0" y="0" class="col-md-12 quizBody">
+		<settings timer="false" timerx="0" timery="0"/>
+
+		<question id="q15" time="15" event="">
+
+    		<text id="question" position="relative" x="0" max-height="200px" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<img class="slide-icon" src="img/Education-white-100x100.svg" alt=""><h4>Question 15</h4><p class="p_24">New salespersons with less than six months’ real estate agency experience are prohibited from preparing sale and purchase agreements or advising clients or customers about their legal rights and obligations in relation to such contracts.</p>]]>
+    		</text>
+
+
+			<!--option 1 -->
+			<option correct="false">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="answerText">True</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="true">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="answerText">False</p>]]></text>
+			</option>
+
+			<text id="controlDiv" position="relative" height="60px" width="" left="0px"><![CDATA[<div class="buttonBoxLeft"></div><div id="hcenter" class="buttonBoxMid"></div><div id="hright" class="buttonBoxRight"></div>]]>
+			</text>
+
+			<!-- <box id="hcenter" class="controlBox" position="relative" height="80" width="330px" margin="" anim="none"/> -->
+
+			<button id="submitBtn" target="hcenter" position="right" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+
+			<!-- <button id="resetBtn" target="hcenter" position="right" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,reset"><![CDATA[<p class="genericBtn">Reset</p>]]></button> -->
+			
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Well done!<br>You are correct.</p>]]></text>
+		
+				<text id="nextQBtn" target="hright" position="relative" margin-bottom="" anim="none" event="loadNextQuestion"><![CDATA[<p class="tryMore">Try the next question</p><span class="chevron"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>]]></text>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options. Please try again.</p>]]></text>
+		
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Incorrect</p><p>Please reset and try again.</p>]]></text>
+		
+				<button id="resetBtn" target="hcenter" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question> <!-- End of question 16 -->
+
+		<question id="q16" time="15" event="">
+
+    		<text id="question" position="relative" x="0" max-height="200px" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<img class="slide-icon" src="img/Education-white-100x100.svg" alt=""><h4>Question 16</h4><p class="p_24">A new salesperson must be advised that when dealing with a party who expresses an interest in making a formal offer, they must immediately refer the matter to their supervising agent or branch manager.</p>]]>
+    		</text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="answerText">True</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="answerText">False</p>]]></text>
+			</option>
+
+			<text id="controlDiv" position="relative" height="60px" width="" left="0px"><![CDATA[<div class="buttonBoxLeft"></div><div id="hcenter" class="buttonBoxMid"></div><div id="hright" class="buttonBoxRight"></div>]]>
+			</text>
+
+			<!-- <box id="hcenter" class="controlBox" position="relative" height="80" width="330px" margin="" anim="none"/> -->
+
+			<button id="submitBtn" target="hcenter" position="right" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+
+			<!-- <button id="resetBtn" target="hcenter" position="right" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,reset"><![CDATA[<p class="genericBtn">Reset</p>]]></button> -->
+			
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Well done!<br>You are correct.</p>]]></text>
+		
+				<text id="nextQBtn" target="hright" position="relative" margin-bottom="" anim="none" event="loadNextQuestion"><![CDATA[<p class="tryMore">Try the next question</p><span class="chevron"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>]]></text>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options. Please try again.</p>]]></text>
+		
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Incorrect</p><p>Please reset and try again.</p>]]></text>
+		
+				<button id="resetBtn" target="hcenter" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question> <!-- End of question 17 -->
+
+		<!--generic timeout text-->
+		<timeout>
+
+			<text id="timeoutTxt" position="relative" margin-bottom="20" anim="top" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_42 grey">Times up!</p>]]></text>
+	
+			<button id="startAgainBtn" position="relative" margin-bottom="30" display="inline-block" height="40" width="100" anim="top" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="btnover,restart"><![CDATA[Start again]]></button>
+        </timeout>
+
+
+        <!--score screen-->
+        <score masteryscore="80">
+           <fb id="pass" event="">
+
+				<text id="pass_txt" position="relative" margin-bottom="20" anim="top" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_30">CONGRATULATIONS!</p><p class="p_24">You have completed the quiz.</p>]]></text>
+				
+				<button id="finishButton" position="relative" margin-bottom="30" display="inline-block" height="40" width="140" anim="top" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="restart"><![CDATA[Continue]]></button>
+            </fb>
+            
+            <fb id="fail" event="">
+
+                <text id="fail_txt" position="relative" margin-bottom="20" anim="top" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_32">Bad luck! You scored [score]%</p><p class="p_24">Why not have another go?</p>]]></text>
+                    
+				<button id="goBtn" position="relative" margin-bottom="30" display="inline-block" height="40" width="120" anim="top" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="btnover,restart,hidefailbg"><![CDATA[Start again]]></button>
+            </fb>
+        </score>
+
+    </custom>
+
+</data>
+

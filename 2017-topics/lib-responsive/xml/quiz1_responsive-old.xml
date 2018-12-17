@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+    <events>
+		<event id="btnover">
+			<rollover>
+				<css name="btnOverCss">this</css>
+			</rollover>
+			
+			<rollout>
+				<css name="btnOutCss">this</css>
+			</rollout>
+		</event>
+
+		<event id="optionover">
+			<rollover>
+				<css name="optionOverCss">this</css>
+			</rollover>
+			
+			<rollout>
+				<css name="optionOutCss">this</css>
+			</rollout>
+		</event>
+		
+		<event id="selectandsubmit">
+			<click>
+				<css name="optionOverCss">this</css>
+				<function name="select">this</function>
+				<function name="submit">this</function>
+			</click>
+		</event>
+
+		<event id="select">
+			<click>
+				<css name="optionOverCss">this</css>
+				<function name="select">this</function>
+			</click>
+		</event>
+
+		<event id="submit">
+			<click>
+				<function name="submit">this</function>
+			</click>
+		</event>
+
+		<event id="reset">
+			<click>
+				<function name="reset">this</function>
+			</click>
+		</event>
+		
+        <event id="begin">
+            <click>
+                <anim type="remove" animtime="0" oncomplete="0">openingText</anim>
+                <function name="begin">this</function>
+            </click>
+        </event>
+
+        <event id="loadNextQuestion">
+            <click>
+                <function name="loadNextQuestion">this</function>
+            </click>
+        </event>
+		
+		<event id="restart">
+            <click>
+                <function name="restart">this</function>
+            </click>
+        </event>
+
+        <event id="showq1bg">
+            <click>
+                <anim type="show" animtime="2" oncomplete="0">q1bg</anim>
+            </click>
+        </event>
+
+         <event id="hidepassbg">
+            <click>
+            	<anim type="hide" animtime="2" oncomplete="0">passbg</anim>
+            </click>
+        </event>
+
+        <event id="showpassbg">
+            <click>
+                <anim type="show" animtime="5" oncomplete="0">passbg</anim>
+            </click>
+        </event>
+
+        <event id="hidefailbg">
+            <click>
+            	<anim type="hide" animtime="2" oncomplete="0">failbg</anim>
+            </click>
+        </event>
+
+        <event id="showfailbg">
+            <click>
+                <anim type="show" animtime="2" oncomplete="0">failbg</anim>
+            </click>
+        </event>
+    </events>    
+
+    <!--responsive timer-->
+    <!--1 column layout, moves to top center on phones-->
+    <box id="timerContainer" position="absolute" x="0" y="0" height="20" anim="none" animtime="0.5" animdelay="1" class="col-md-8 col-md-offset-2 timerContainer" z-index="2">
+
+    </box>
+
+    <!--opening text-->
+    <box id="openingText" position="relative" margin-top="30" anim="top" animtime="1" ease="Bounce.easeOut" class="col-md-12 " z-index="1">
+
+    	<text id="title" position="relative" anim="none"><![CDATA[<h3>Questions</h3><h4>Important rules and legislation relating to disclosure obligations to client and customer</h4>
+    	<p class="black">We have covered the key rules from the Code of Conduct 2012 and other pieces of legislation that relate to the obligations that licensees have with clients (in line with their fiduciary duties), and obligations to customers in terms of disclosure in Continuing Education programmes in previous years.
+		As a review, and to check your understanding of these concepts, complete the questions that follow. You may refer to Appendices 1 – 4 as necessary.</p>
+		<p class="p_16_black">Read the rules from the Code of Conduct 2012 in the table that follows. Do the obligations they describe relate to client, customer or both? 
+		Click the boxes to confirm your answers. You CAN select both boxes, Refer to Appendix 1 to help you answer the questions, as necessary.
+		</p>]]></text>
+
+    	<button id="goBtn" position="relative" height="40" margin="0 auto" margin-top="20" display="block" width="100" anim="none" event="btnover,begin" target="title" class="center-block"><![CDATA[START]]></button>
+    </box>
+
+    <!--timed quiz-->
+    <custom type="quiz" id="quiz" position="relative" x="0" y="0" class="col-md-12">
+		<settings timer="false" timerx="0" timery="0"/>
+
+		<!-- questions -->
+        <question id="q1" time="15" event="">
+
+    		<text id="question" position="relative" x="0" max-height="80px" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p class="p_24">1. - RULE:5.1 <br> A licensee must exercise skill, care, competence, and diligence at all times when carrying out real estate agency work.<br>You may select more than one answer.<p>]]>
+    		</text>
+
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q2" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p class="p_24">2. - RULE: 6.1 <br> A licensee must comply with fiduciary obligations to the licensee’s client.<br>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q3" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p class="p_24">3. - RULE: 6.2 <br> A licensee must act in good faith and deal fairly with all parties engaged in a transaction.<br>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q4" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p class="p_24">4. - RULE: 6.3 <br> A licensee must not engage in any conduct likely to bring the industry into disrepute.<br>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="true">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q5" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p class="p_24">5. - RULE: 6.4 <br> A licensee must not mislead a customer or client, nor provide false information, nor withhold.<br>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="true">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q6" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p class="p_24">6. - RULE: 9.1 <br> A licensee must act in the best interests of a client and act in accordance with the client’s instructions unless to do so would be contrary to law.<br>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q7" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p class="p_24">7. - RULE: 9.16 <br> A licensee must not use information that is confidential to a client for the benefit of any other person or of the licensee.<br>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q8" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p class="p_24">8. - RULE: 9.17 <br> A licensee must not disclose confidential personal information relating to a client unless-<br>
+			(a) the client consents in writing; or<br>
+			(b) disclosure is necessary to answer or defend any complaint, claim, allegation, or proceedings against the licensee by the client; or<br>
+			(c) the licensee is required by law to disclose the information; or<br>
+			(d) the disclosure is consistent with the information privacy principles in section 6 of thePrivacy Act 1993.<br>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+
+        <question id="q9" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p>9. RULE: 9.18 <br> Where a licensee discloses information under rule 9.17(b), (c) or (d), it may be only to the appropriate person or entity and only to the extent necessary for the permitted purpose. </p><p>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q10" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p>10. RULE: 10.7 <br> A licensee is not required to discover hidden or underlying defects in land but must disclose known defects to a customer. Where it would appear likely to a reasonably competent licensee that land may be subject to hidden or underlying defects, a licensee must either –<br>
+			(a) obtain confirmation from the client, supported by evidence or expert advice, that the land in question is not subject to defect; or<br>
+			(b) ensure that a customer is informed of any significant potential risk so that the customer can seek expert advice if the customer so chooses.<br></p><p>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="true">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+
+        <question id="q11" time="15" event="">
+
+    		<text id="question" position="relative" x="0" margin-bottom="30" anim="show" animtime="1" animdelay="0.1" clear="both"><![CDATA[<p>11.- RULE: 10.8 <br> A licensee must not continue to act for a client who directs that information of the type referred to in rule 10.7 be withheld.<br><p>You may select more than one answer.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text id="option1_1" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.2" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Client</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text id="option1_2" position="relative" margin-bottom="10" anim="show" animtime="1" animdelay="0.3" event="optionover,select" class="optionBox"><![CDATA[<p class="p_16 white">Customer</p>]]></text>
+			</option>
+
+			<box id="hcenter" position="relative" height="80" width="210" margin="0 auto" anim="none"/>
+
+			<button id="submitBtn" target="hcenter" position="absolute" width="100" anim="disabled" animtime="0.3" animdelay="0.1" event="btnover,submit"><![CDATA[<p class="genericBtn">Confirm</p>]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct</p>]]></text>
+		
+				<button id="nextQBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,loadNextQuestion"><![CDATA[Try the next one]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text id="txt11" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Not quite.</p><p>You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" margin-bottom="10" width="150" display="inline-block" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text id="txt1" position="relative" anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p>]]></text>
+		
+				<button id="resetBtn" position="relative" width="150" display="inline-block" margin-bottom="10" anim="none" event="btnover,reset"><![CDATA[Try Again]]></button>
+
+				<text id="bottompad" position="relative" anim="none"><![CDATA[<p>&nbsp;</p>]]></text>
+			</fb>
+		</question>
+		
+
+		
+		<!--generic timeout text-->
+		<timeout>
+
+			<text id="timeoutTxt" position="relative" margin-bottom="20" anim="top" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_42 grey">Times up!</p>]]></text>
+	
+			<button id="startAgainBtn" position="relative" margin-bottom="30" display="inline-block" height="40" width="100" anim="top" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="btnover,restart"><![CDATA[Start again]]></button>
+        </timeout>
+
+
+        <!--score screen-->
+        <score masteryscore="80">
+           <fb id="pass" event="">
+
+				<text id="pass_txt" position="relative" margin-bottom="20" anim="top" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_30">CONGRATULATIONS!</p><p class="p_24">You scored [score]%</p>]]></text>
+				
+				<button id="finishButton" position="relative" margin-bottom="30" display="inline-block" height="40" width="140" anim="top" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="restart"><![CDATA[Continue]]></button>
+            </fb>
+            
+            <fb id="fail" event="">
+
+                <text id="fail_txt" position="relative" margin-bottom="20" anim="top" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_32">Bad luck! You scored [score]%</p><p class="p_24">Why not have another go?</p>]]></text>
+                    
+				<button id="goBtn" position="relative" margin-bottom="30" display="inline-block" height="40" width="120" anim="top" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="btnover,restart,hidefailbg"><![CDATA[Start again]]></button>
+            </fb>
+        </score>
+
+    </custom>
+
+</data>
+
